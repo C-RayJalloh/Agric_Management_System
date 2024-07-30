@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
+const ProductRegistryRoute = require('./Routes/ProductRegistryRoute')
 
 // database connection
 mongoose.connect('mongodb://localhost:27017/agricMS');
@@ -18,10 +19,16 @@ mongoose.connection.on('error', (err) => {
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
 // parse application/json
 app.use(bodyParser.json())
 
+
+
+// API ROUTES
+app.use('/productRegistry', ProductRegistryRoute);
+
+
+// TEST ROUTE
 app.get('/', (req, res) => {
     res.send('Hello everything works')
 });

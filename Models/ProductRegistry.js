@@ -1,17 +1,53 @@
-// create SCHEMA AND MODEL USING MONGOOSE
 const mongoose = require('mongoose');
+const schema = mongoose.schema;
 
-const Schema = mongoose.Schema;
+// Product Registry Schema
+const productRegistrySchema = {
+    genericName: {
+        type: String,
+        required: true
+    },
+    brandName: {
+        type: String,
+        required: true
+    },
+    category: {
+        type: String,
+        enum: ['Farm Input', 'Chicks', 'Piglets', 'Medicines', 'Farm Tools', 'PPEs'], // Define default categories here
+        default: 'Chicks' // Set default value if needed
+    },
+    productType: {
+        type: String,
+        enum: [
+            'Fertiliser',
+            'Seeds',
+            'Seedlings',
+            'Herbicides',
+            'Pesticides',
+            'Day Old Chicks',
+            'Pullets',
+            'Piglets',
+            'Vitamins',
+            'Antibiotics',
+            'Vaccines',
+            'Manual Sprayers',
+            'Semi-Mechanised Sprayers',
+            'Manual Seeders',
+            'Semi-Mechanised Seeders',
+            'Boots',
+            'Overalls',
+            'Gloves',
+            'Face Masks',
+            'Goggles'
+        ],
+        default: 'Fertiliser' // You can set a different default value if needed
+    },
+    additionInfo: {
+        type: String,
+        required: true
+    },
+    createdOn: Date,
+};
 
-// create SCHEMA
-const cropSchema = new Schema({
-    cropName: String,
-    variety: String,
-    yield: Number,
-    area: Number,
-    price: Number,
-    date: { type: Date, default: Date.now }
-});
 
-// build the CROP MODEL & EXPORT IT
-module.exports = mongoose.model('Crop', cropSchema);
+module.exports = mongoose.Model('ProductRegistry', productRegistrySchema);

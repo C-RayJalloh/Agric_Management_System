@@ -3,21 +3,24 @@ const Crop = require('../Models/ProductRegistry');
 
 // Add new crop
 const addCrop = (req, res) => {
+   
+
+   try {
     const crop = new Crop({
-        cropName: req.body.cropName,
-        variety: req.body.variety,
-        yield: req.body.yield,
-        area: req.body.area,
-        price: req.body.price
+        cropName: 'croppy',
+        variety: 'variety',
+        yield: 10,
+        area: 140,
+        price: 100
     });
 
-    crop.save((err) => {
-        if (err) {
-            console.log('Error saving crop:', err);
-            return res.status(500).send('Error saving crop');
-        }
-        res.status(201).send('Crop has been saved to the database');
-    });
+    // saves the data
+    crop.save();
+    res.status(201).send('Crop has been saved to the database');
+   } catch (err) {
+    res.status(500).send('Failed!')
+   };
+   
 };
 
 // Other crop-related methods can go here...
@@ -26,3 +29,5 @@ module.exports = {
     addCrop
     // Export other methods as needed
 };
+
+
