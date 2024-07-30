@@ -1,9 +1,20 @@
 // SERVER SET-UP
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const mongoose = require('mongoose');
+
+// database connection
+mongoose.connect('mongodb://localhost:27017/agricMS');
+// check connection
+mongoose.connection.on('connected', () => {
+    console.log('Connected to MongoDB');
+});
+
+mongoose.connection.on('error', (err) => {
+    console.error('Error connecting to MongoDB:', err.message);
+});
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
