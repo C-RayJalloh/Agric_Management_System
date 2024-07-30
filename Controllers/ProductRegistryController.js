@@ -1,33 +1,30 @@
 // controllers/cropController.js
-const Crop = require('../Models/ProductRegistry');
+const ProductRegistry = require('../Models/ProductRegistry');
 
-// Add new crop
-const addCrop = (req, res) => {
-   
+//  DATA MANIPULATION
+const registerProduct = (req, res) => {
+    try{
+        const product = new ProductRegistry({
+            genericName: 'Potatoe',
+            brandName: 'Browns',
+            category: 'Chicks',
+            productType: 'Day Old Chicks',
+            additionInfo: 'Our products really are the best in town, Visit our store to see them',
+            createdOn: new Date()
+        });
 
-   try {
-    const crop = new Crop({
-        cropName: 'croppy',
-        variety: 'variety',
-        yield: 10,
-        area: 140,
-        price: 100
-    });
+        product.save();
+        res.status(201).send('Product has been registered successfully');
+    } catch (err){
+        res.status(500).send('Failed to register product')
+    }
+}
 
-    // saves the data
-    crop.save();
-    res.status(201).send('Crop has been saved to the database');
-   } catch (err) {
-    res.status(500).send('Failed!')
-   };
-   
-};
 
-// Other crop-related methods can go here...
 
 module.exports = {
-    addCrop
-    // Export other methods as needed
+    // Exporting the methods
+    registerProduct
 };
 
 

@@ -50,4 +50,4 @@ const productRegistrySchema = {
 };
 
 
-module.exports = mongoose.Model('ProductRegistry', productRegistrySchema);
+module.exports = mongoose.model('ProductRegistry', productRegistrySchema);

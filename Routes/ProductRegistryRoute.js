@@ -1,10 +1,10 @@
 // routes/cropRoutes.js
 const express = require('express');
 const router = express.Router();
-const cropController = require('../Controllers/ProductRegistryController');
+const ProductRegistryController = require('../Controllers/ProductRegistryController');
 
-// Add new crop
-router.post('/addCrop', cropController.addCrop);
+
+router.post('/registerProduct', ProductRegistryController.registerProduct);
 
 // Other routes can go here...
 

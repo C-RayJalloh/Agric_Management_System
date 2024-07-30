@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
 const ProductRegistryRoute = require('./Routes/ProductRegistryRoute')
+const farmerRegistryRoute = require('./Routes/FarmerRegistryRoute')
 
 // database connection
 mongoose.connect('mongodb://localhost:27017/agricMS');
@@ -26,6 +27,7 @@ app.use(bodyParser.json())
 
 // API ROUTES
 app.use('/productRegistry', ProductRegistryRoute);
+app.use('/farmerRegistry', farmerRegistryRoute)
 
 
 // TEST ROUTE
