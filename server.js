@@ -3,11 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
-const ProductRegistryRoute = require('./Routes/ProductRegistryRoute');
-const farmerRegistryRoute = require('./Routes/FarmerRegistryRoute');
-const dealerRegistryRoute = require('./Routes/DealerRegistryRoute');
-const MachineOperatorRegistryRoute = require('./Routes/MachineOperatorRegistryRoute');
-const MachineOperatorRegistryRoute = require('./Routes/MachineOperatorRegistryRoute');
+const {  ProductRegistryRoute,
+    farmerRegistryRoute,
+    dealerRegistryRoute,
+    MachineOperatorRegistryRoute,
+    SeviceProviderRegistryRoute, } = require('./index')
 
 // database connection
 mongoose.connect('mongodb://localhost:27017/agricMS');
@@ -33,6 +33,7 @@ app.use('/productRegistry', ProductRegistryRoute);
 app.use('/farmerRegistry', farmerRegistryRoute);
 app.use('/dealerRegistry', dealerRegistryRoute);
 app.use('/machineOperatorRegistry', MachineOperatorRegistryRoute);
+app.use('/serviceProviderRegistry', SeviceProviderRegistryRoute);
 
 
 
