@@ -1,4 +1,4 @@
-const router = require('exprees').Router();
+const router = require('express').Router();
 const offtakerController = require('../Controllers/OffTakerRegistryController');
 
 router.post('/registerOfftaker', offtakerController.registerOffTaker);
