@@ -1,0 +1,6 @@
+{
+  "reactSnippets.settings.prettierEnabled": true,
+  "prettier.requireConfig": false,
+  "prettier.bracketSameLine": true,
+  "prettier.jsxSingleQuote": true
+}
