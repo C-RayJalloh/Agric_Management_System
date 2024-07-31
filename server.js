@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const ProductRegistryRoute = require('./Routes/ProductRegistryRoute');
 const farmerRegistryRoute = require('./Routes/FarmerRegistryRoute');
 const dealerRegistryRoute = require('./Routes/DealerRegistryRoute');
+const MachineOperatorRegistryRoute = require('./Routes/MachineOperatorRegistryRoute');
 
 // database connection
 mongoose.connect('mongodb://localhost:27017/agricMS');
@@ -30,6 +31,8 @@ app.use(bodyParser.json())
 app.use('/productRegistry', ProductRegistryRoute);
 app.use('/farmerRegistry', farmerRegistryRoute);
 app.use('/dealerRegistry', dealerRegistryRoute);
+app.use('/machineOperatorRegistry', MachineOperatorRegistryRoute);
+
 
 
 
