@@ -22,10 +22,10 @@ const registerDealer = (req, res) => {
         });
 
         dealer.save();
-        res.status(200).send('Dealer has been successfully registered')
+        res.status(200).send('Dealer has been successfully registered');
 
     } catch(err){
-        res.status(500).send('Failed to register a dealer', err)
+        res.status(500).send('Failed to register a dealer', err);
     }
 };
 
