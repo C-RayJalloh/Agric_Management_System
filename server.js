@@ -7,7 +7,9 @@ const {  ProductRegistryRoute,
     farmerRegistryRoute,
     dealerRegistryRoute,
     MachineOperatorRegistryRoute,
-    SeviceProviderRegistryRoute, } = require('./index')
+    SeviceProviderRegistryRoute,
+    OffTakerRegistryRoute
+} = require('./index')
 
 // database connection
 mongoose.connect('mongodb://localhost:27017/agricMS');
@@ -34,6 +36,7 @@ app.use('/farmerRegistry', farmerRegistryRoute);
 app.use('/dealerRegistry', dealerRegistryRoute);
 app.use('/machineOperatorRegistry', MachineOperatorRegistryRoute);
 app.use('/serviceProviderRegistry', SeviceProviderRegistryRoute);
+app.use('/offTakerRegistry', OffTakerRegistryRoute);
 
 
 
